@@ -28,7 +28,8 @@ class GroupLens_IREvaluator {
 	    RandomUtils.useTestSeed();    
 
 	DataModel model =null;
-	if (args[0]=="100K")
+	String dataset =args[0];
+	if (dataset.equals("100k"))
 		model = new FileDataModel(new File(args[1]));
 	else //(args[0]=="1M" || args[0]=="10M")
 		model = new GroupLensDataModel(new File(args[1]));	
@@ -42,7 +43,7 @@ class GroupLens_IREvaluator {
     	//ItemSimilarity similarityMeasure = new UncenteredCosineSimilarity(model,Weighting.WEIGHTED);
     	UncenteredCosineSimilarity similarityMeasure = new UncenteredCosineSimilarity(model,Weighting.WEIGHTED);
     	          
-    	ItemSimilarity similarity= new GenericItemSimilarity(similarityMeasure, model); //Precomputation completed here.
+    	ItemSimilarity similarity= new GenericItemSimilarity(similarityMeasure, model); 
     	similarityMeasure.printOverlapCount();
     	return new GenericItemBasedRecommender(model, similarity);
       }
