@@ -1,7 +1,7 @@
 /* 
 A revised version of AbstractSimilarity class in Mahout. The original version is hosted here 
 http://grepcode.com/file/repo1.maven.org/maven2/org.apache.mahout/mahout-core/0.8/org/apache/mahout/cf/taste/impl/similarity/AbstractSimilarity.java
-Code snippets I've inserted are enclosed by comments using // <Yu Du's code snippet> and // </Yu Du's code snippet>.
+Code snippets I've inserted are enclosed by comments using // <Yu Du's code> and // </Yu Du's code>.
 */
 
 package org.apache.mahout.cf.taste.impl.similarity;
@@ -20,7 +20,7 @@ abstract class AbstractSimilarity extends AbstractItemSimilarity implements User
   private int cachedNumUsers;
   private final RefreshHelper refreshHelper;
 
-  // <Yu Du's code snippet>
+  // <Yu Du's code>
   private int [] overlapCount=new int[300]; //You can pick a number larger than 300 for a more precise description of distribution.
 
   public void printOverlapCount() { 
@@ -28,7 +28,7 @@ abstract class AbstractSimilarity extends AbstractItemSimilarity implements User
 		  System.out.println("overlapCount[" + i + "]="+ overlapCount[i]);
 	  }
   }
-  // </Yu Du's code snippet>
+  // </Yu Du's code>
 
   /**
    * <p>
@@ -301,10 +301,10 @@ abstract class AbstractSimilarity extends AbstractItemSimilarity implements User
       }
     }
 
-    // <Yu Du's code snippet>
+    // <Yu Du's code>
     if (count<300)
     	overlapCount[count]++;
-    // </Yu Du's code snippet>
+    // </Yu Du's code>
 
     double result;
     if (centerData) {
